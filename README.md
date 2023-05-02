@@ -9,3 +9,5 @@ The Tree class has a root attribute which uses the return value of #build_tree m
 #build_tree method takes an array of data (e.g. [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]) 
 and turns it into a balanced binary tree full of Node objects appropriately placed.
 It uses #pretty_print method to visualize a tree.
+
+#insert and #delete method accept a value to insert/delete

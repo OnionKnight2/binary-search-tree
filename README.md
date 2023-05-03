@@ -11,3 +11,5 @@ and turns it into a balanced binary tree full of Node objects appropriately plac
 It uses #pretty_print method to visualize a tree.
 
 #insert and #delete method accept a value to insert/delete
+
+#find method accepts a value and returns the node with the given value

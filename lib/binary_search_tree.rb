@@ -105,6 +105,12 @@ class Tree
     postorder(root_node.right)
     postorder(root_node.left)
   end
+
+  def height(node = @root)
+    return -1 if node.nil?
+    
+    [height(node.left), height(node.right)].max + 1
+  end
   
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
@@ -145,3 +151,5 @@ puts tree.level_order
 puts tree.inorder
 puts tree.preorder
 puts tree.postorder
+
+puts tree.height(tree.find(23))

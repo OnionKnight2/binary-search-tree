@@ -13,3 +13,5 @@ It uses #pretty_print method to visualize a tree.
 #insert and #delete method accept a value to insert/delete
 
 #find method accepts a value and returns the node with the given value
+
+#level_order method accepts a block. This method should traverse the tree in breadth-first level order and yield each node to the provided block. The method should return an array of values if no block is given

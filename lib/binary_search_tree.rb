@@ -111,6 +111,19 @@ class Tree
     
     [height(node.left), height(node.right)].max + 1
   end
+
+  def depth(root_node = root, current_root = root, counter = 0)
+    return -1 if root_node.nil?
+    return counter if root_node == current_root || current_root.nil?
+
+    if root_node.data < current_root.data
+      counter += 1
+      depth(root_node, current_root.left, counter)
+    else root_node.data > current_root.data
+      counter += 1
+      depth(root_node, current_root.right, counter)
+    end
+  end
   
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
@@ -152,4 +165,5 @@ puts tree.inorder
 puts tree.preorder
 puts tree.postorder
 
-puts tree.height(tree.find(23))
+puts tree.height(tree.find(9))
+puts tree.depth(tree.find(11))

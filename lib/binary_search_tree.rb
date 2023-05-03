@@ -33,7 +33,37 @@ class Tree
   end
 
   def delete(value, root_node = @root)
-    
+    return root_node if root_node.nil?
+
+    if value < root_node.data
+      root_node.left = delete(value, root_node.left)
+    elsif value > root_node.data
+      root_node.right = delete(value, root_node.right)
+    else
+      # Node has no children or one child
+      return root_node.right if root_node.left.nil?
+      return root_node.left if root_node.right.nil?
+
+      # Node has two or more children
+      # Get the inorder successor
+      # (smallest in the right subtree)
+      temp = minValueNode(root_node.right)
+
+      # Copy the inorder successor's
+      # content to this node
+      root_node.data = temp.data
+
+      # Delete the inorder successor
+      root_node.right = delete(temp.data, root_node.right)
+    end
+
+    root_node
+  end
+
+  def minValueNode(node)
+    node = node.left until node.left.nil?
+
+    node
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)
@@ -63,4 +93,7 @@ tree.pretty_print
 tree.insert(123)
 tree.insert(0)
 tree.insert(2132)
+tree.pretty_print
+tree.delete(0)
+tree.delete(8)
 tree.pretty_print

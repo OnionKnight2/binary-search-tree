@@ -171,27 +171,29 @@ class Node
   end
 end
 
-tree = Tree.new([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324])
-tree.pretty_print
-tree.insert(123)
-tree.insert(0)
-tree.insert(2132)
-tree.pretty_print
-tree.delete(0)
-tree.delete(8)
-tree.pretty_print
+# Driver script
+array = Array.new(15) {rand(1..100)}
+bst = Tree.new(array)
 
-# p tree.find(9)
+bst.pretty_print
 
-puts tree.level_order
+puts bst.balanced?
 
-puts tree.inorder
-puts tree.preorder
-puts tree.postorder
+puts bst.level_order
+puts bst.preorder
+puts bst.inorder
+puts bst.postorder
 
-puts tree.height(tree.find(9))
-puts tree.depth(tree.find(11))
+bst.insert(123)
+bst.insert(126)
+bst.insert(135)
+bst.insert(140)
+bst.pretty_print
 
-puts tree.balanced?
-tree.rebalance
-tree.pretty_print
+bst.rebalance
+bst.pretty_print
+
+puts bst.level_order
+puts bst.preorder
+puts bst.inorder
+puts bst.postorder

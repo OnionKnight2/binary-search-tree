@@ -19,3 +19,5 @@ It uses #pretty_print method to visualize a tree.
 #inorder, #preorder, and #postorder methods traverse the tree in their respective depth-first order. The methods should return an array of values if no block is given.
 
 #height method accepts a node and returns its height. Height is defined as the number of edges in longest path from a given node to a leaf node.
+
+#depth method accepts a node and returns its depth. Depth is defined as the number of edges in path from a given node to the tree’s root node

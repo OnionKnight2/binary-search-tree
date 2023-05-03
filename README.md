@@ -14,4 +14,6 @@ It uses #pretty_print method to visualize a tree.
 
 #find method accepts a value and returns the node with the given value
 
-#level_order method accepts a block. This method should traverse the tree in breadth-first level order and yield each node to the provided block. The method should return an array of values if no block is given
+#level_order method should traverse the tree in breadth-first level order. The method should return an array of values if no block is given
+
+#inorder, #preorder, and #postorder methods traverse the tree in their respective depth-first order. The methods should return an array of values if no block is given.

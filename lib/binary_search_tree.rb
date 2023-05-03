@@ -124,6 +124,30 @@ class Tree
       depth(root_node, current_root.right, counter)
     end
   end
+
+  def balanced?(root_node = root)
+    return true if root_node.nil?
+
+    left_height = height(root_node.left)
+    right_height = height(root_node.right)
+    return false if (left_height - right_height).abs > 1
+
+    balanced?(root_node.left) && balanced?(root_node.right)
+  end
+
+  def rebalance
+    self.data = inorder_array
+    self.root = build_tree(data)
+  end
+
+  def inorder_array(root_node = root, array = [])
+    unless root_node.nil?
+      inorder_array(root_node.left, array)
+      array.push(root_node.data)
+      inorder_array(root_node.right, array)
+    end
+    array
+  end
   
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
@@ -167,3 +191,7 @@ puts tree.postorder
 
 puts tree.height(tree.find(9))
 puts tree.depth(tree.find(11))
+
+puts tree.balanced?
+tree.rebalance
+tree.pretty_print

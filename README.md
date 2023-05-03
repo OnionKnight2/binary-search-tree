@@ -17,3 +17,5 @@ It uses #pretty_print method to visualize a tree.
 #level_order method should traverse the tree in breadth-first level order. The method should return an array of values if no block is given
 
 #inorder, #preorder, and #postorder methods traverse the tree in their respective depth-first order. The methods should return an array of values if no block is given.
+
+#height method accepts a node and returns its height. Height is defined as the number of edges in longest path from a given node to a leaf node.
